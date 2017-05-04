@@ -1,0 +1,45 @@
+version: '2'
+
+services:
+  _base:
+    image: registry.cowbell.realestate.com.au/cowbell/java-openjdk-8-jdk-gradle:201603211708
+    volumes:
+      - .:/app
+      - gradle-cache:/root/.gradle/caches
+    working_dir: /app
+    environment:
+      DB_NAME: my_items
+      DB_HOST: postgres
+      DB_USERNAME: rw_my_items
+      DB_PASSWORD: Password12
+      DB_MASTER_USERNAME: postgres
+      DB_MASTER_PASSWORD: Password12
+      BOOKMARKS_LIMIT: 250
+
+  dev:
+    extends:
+      service: _base
+    depends_on:
+      - postgres
+
+  api:
+    extends:
+      service: _base
+    command: ["flywaymigrate", "bootRun"]
+    environment:
+      TERM: xterm
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+
+  postgres:
+    build: ./dev
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Password12
+    ports:
+      - "5432:5432"
+
+volumes:
+  gradle-cache:

@@ -1,4 +1,4 @@
-package spike.monogodb.web;
+package springboot.spike.web;
 
 import org.junit.Assert;
 import org.junit.Test;
