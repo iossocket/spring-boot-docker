@@ -1,11 +1,11 @@
-package springboot.spike;
+package my.application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBootSpikeApplication {
+public class MyApplication {
     public static void main(String... args) {
-        SpringApplication.run(SpringBootSpikeApplication.class, args);
+        SpringApplication.run(MyApplication.class, args);
     }
 }

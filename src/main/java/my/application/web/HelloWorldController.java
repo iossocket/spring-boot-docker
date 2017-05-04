@@ -1,4 +1,4 @@
-package springboot.spike.web;
+package my.application.web;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

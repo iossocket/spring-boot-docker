@@ -14,10 +14,11 @@ buildscript {
 }
 
 apply plugin: 'java'
+apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
 jar {
-    baseName = 'my-mongodb-spike'
+    baseName = 'spring-boot-docker-spike'
 }
 
 sourceCompatibility = 1.8
@@ -35,8 +36,3 @@ dependencies {
 bootRun {
     //jvmArgs "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005"
 }
-
-springBoot {
-    mainClass = "main.Main"
-}
-
